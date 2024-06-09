@@ -1,0 +1,30 @@
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" [src]=coffeeimage [alt]=coffeetitle >
+    <div class="card-body">
+      <h5 class="card-title">{{coffeetitle}}</h5>
+      <p>
+        
+        @if(coffeeingredients.length>0) {
+          <ul>
+          @for(simpleIngredient of coffeeingredients; track ingredient) {
+            <li> {{simpleIngredient}}</li>
+          } @empty {
+            <p>No ingredients found</p>
+          }
+        </ul>
+        }@else {
+          <p>Load ingredients</p>
+        }
+      </p>
+      <p class="card-text">{{coffeedescription}}
+
+        </p>
+      <p class="text-center"> <u>id: {{coffeeid}}</u></p>
+      
+    </div>
+    <div class="card-footer">
+      <p class="text-center">
+        <a [routerLink]="['/desc',coffeeid]" class="btn btn-primary">Description</a>
+      </p>
+    </div>
+  </div>

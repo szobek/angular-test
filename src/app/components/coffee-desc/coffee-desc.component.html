@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <p class="text-center"> Coffee description</p>
+            <h1>{{coffee?.title}}</h1>
+            <p>{{coffee?.description}}</p>
+
+            @if(coffee !=undefined ) {
+            <h4>Ingredients</h4>
+            <ul>
+                @for(simpleIngredient of coffee.ingredients; track ingredient) {
+                <li> {{simpleIngredient}}</li>
+                } @empty {
+                <p>No ingredients found</p>
+                }
+            </ul>
+            }@else {
+            <p>Load ingredients</p>
+            }
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <a class="btn btn-primary" [routerLink]="['']">Back</a>
+        </div>
+    </div>
+</div>
